@@ -42,7 +42,7 @@ function Sidebar() {
                 onMouseEnter={_handleHover}
                 onMouseLeave={_handleHover}
                 className={`menu group flex absolute max-h-fit ml-[5.625rem] mt-[1.25rem] \
-                font-hanken text-[20px] pt-[0.25rem] cursor-pointer transition-all duration-900 \
+                font-hanken text-[1.25rem] pt-[0.25rem] cursor-pointer transition-all duration-900 \
                 ${isClicked ? 'text-white' : 'text-black'}`}
             >
                 <div className="mt-[0.65rem] mr-[5px]">
