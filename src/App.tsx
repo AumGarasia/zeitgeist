@@ -1,6 +1,7 @@
 import { useEffect, useRef } from 'react'
 import gsap from 'gsap'
 import { ReactLenis } from 'lenis/react'
+import Sidebar from './components/Sidebar'
 
 function App() {
   const lenisRef = useRef<any>(null)
@@ -17,6 +18,7 @@ function App() {
 
   return (
     <ReactLenis root options={{ autoRaf: false }} ref={lenisRef}>
+      <Sidebar />
       <h1 className="text-3xl font-bold underline text-black">
         Hello world!
       </h1>
