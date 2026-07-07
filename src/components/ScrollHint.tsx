@@ -62,7 +62,7 @@ function ScrollHint() {
 
     return (
         <div 
-            id="scrollHint"
+            data-cursor="scroll"
             className={`fixed bottom-[50px] right-[50px] \
             text-white font-hanken font-thin text-[32px] text-[1.25rem]
             ${isVisible ? 'opacity-100' : 'opacity-0'} transition-opacity duration-500`}
