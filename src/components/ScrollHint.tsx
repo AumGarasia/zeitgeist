@@ -23,7 +23,7 @@ function ScrollHint() {
 
                 tl = gsap.timeline({
                     repeat: -1, 
-                    repeatDelay: 0.6,
+                    repeatDelay: 1.8,
                 })
 
                 tl.from(split.chars, {
@@ -62,8 +62,9 @@ function ScrollHint() {
 
     return (
         <div 
+            id="scrollHint"
             className={`fixed bottom-[50px] right-[50px] \
-            text-white font-hanken font-thin text-[32px] text-[1.25rem] z-100 bg-black 
+            text-white font-hanken font-thin text-[32px] text-[1.25rem]
             ${isVisible ? 'opacity-100' : 'opacity-0'} transition-opacity duration-500`}
             style={{ transform: 'rotate(90deg)', userSelect: 'none' }}
         >

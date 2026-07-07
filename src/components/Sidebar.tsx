@@ -29,10 +29,10 @@ function Sidebar() {
     return (
         <div className="flex">
             <div className={`toHome flexbox h-[100vh] text-white bg-black \
-            font-dancing font-bold text-[1.75rem] pl-[1rem] pt-[1.25rem] transition-all \
+            font-dancing font-bold text-[1.75rem] pl-[1rem] z-10 pt-[1.25rem] transition-all \
             ${isClicked 
                 ? 'w-[100vw] pointer-events-none duration-900' 
-                : 'w-[3.125rem] cursor-pointer hover:w-[4.5rem] hover:pl-[1.7rem] duration-900'
+                : 'w-[3.125rem] hover:w-[4.5rem] hover:pl-[1.7rem] duration-900'
             }`}>
                 Z
             </div>
@@ -41,8 +41,8 @@ function Sidebar() {
                 onClick={_handleClick} 
                 onMouseEnter={_handleHover}
                 onMouseLeave={_handleHover}
-                className={`menu group flex absolute max-h-fit ml-[5.625rem] mt-[1.25rem] \
-                font-hanken text-[1.25rem] pt-[0.25rem] cursor-pointer transition-all duration-900 \
+                className={`menu group flex absolute max-h-fit ml-[5.625rem] mt-[1.25rem] z-10 \
+                font-hanken text-[1.25rem] pt-[0.25rem] transition-all duration-900 \
                 ${isClicked ? 'text-white' : 'text-black'}`}
             >
                 <div className="mt-[0.65rem] mr-[5px]">
