@@ -9,6 +9,7 @@ gsap.registerPlugin(ScrambleTextPlugin);
 
 function Sidebar() {
     const overlayRef = useRef<HTMLDivElement>(null);
+    const sidebarRef = useRef<HTMLDivElement>(null);
     const [isClicked, setIsClicked] = useState(false);
 
     const chars = "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789";
@@ -29,42 +30,78 @@ function Sidebar() {
     }
 
     useEffect(() => {
+        const sidebar = sidebarRef.current;
         const overlay = overlayRef.current;
-        if (!overlay)   return;
+        if (!overlay || !sidebar)   return;
 
         if (isClicked) {
-            gsap.to(overlay, {
-                opacity: 1,
-                scale: 1,
+            const tl = gsap.timeline();
+
+            // First ensure the overlay container wrapper is visible
+            gsap.set(overlay, { display: "block", pointerEvents: "auto" });
+
+            // Expand the side pane to full width cleanly
+            tl.to(sidebar, {
+                width: "100vw",
                 duration: 0.8,
-                ease: "power3.out",
-                pointerEvents: "auto"
-            });
+                ease: "power4.out"
+            })
+            // Slide and fade the menu columns into view seamlessly
+            .fromTo(overlay.querySelectorAll(".grid > div"), 
+                { opacity: 0, x: 50 },
+                { 
+                    opacity: 1, 
+                    x: 0, 
+                    duration: 1.3, 
+                    stagger: 0.08, 
+                    ease: "power3.out" 
+                }, 
+                "-=0.5" // Start displaying text while the panel is still moving
+            );
+
         } else {
-            gsap.to(overlay, {
+            // Smoothly reverse everything when "Back" is clicked without any jitter
+            const tl = gsap.timeline();
+            
+            // Fade the inner grid items back out first matching your forward style
+            tl.to(overlay.querySelectorAll(".grid > div"), {
                 opacity: 0,
-                scale: 0.95,
-                duration: 0.6,
-                ease: "power3.out",
-                pointerEvents: "none"
-            });
+                x: -30,
+                duration: 0.4,
+                stagger: 0.04,
+                ease: "power3.in"
+            })
+            .to(sidebar, {
+                width: "3.125rem",
+                duration: 0.5,
+                ease: "power4.inOut"
+            }, "-=0.2")
+            // Crucial: Only hide the interaction block AFTER the full animation sequence completes
+            .set(overlay, { display: "none", pointerEvents: "none" });
         }
     }, [isClicked]);
 
     return (
         <div className="flex h-full w-full">
-            <div className={`toHome flexbox h-[100vh] text-white bg-black \
-            font-dancing font-bold text-[1.75rem] pl-[1rem] pt-[1.25rem] transition-all z-10 \
-            ${isClicked 
-                ? 'w-[100vw] pointer-events-none transition-all duration-900' 
-                : 'w-[3.125rem] hover:w-[4.5rem] hover:pl-[1.7rem] duration-900'
-            }`}>
+            {/* SIDE-PANE PANEL: Handled entirely by GSAP layout engine now */}
+            <div 
+                ref={sidebarRef}
+                className={`toHome flexbox h-[100vh] text-white bg-black \
+                font-dancing font-bold text-[1.75rem] pl-[1rem] pt-[1.25rem] z-10 w-[3.125rem] select-none\
+                ${!isClicked ? 'w-[3.125rem] hover:w-[4.5rem] hover:pl-[1.7rem] transition-all duration-500' : ''}`}
+            >
                 Z
-                <div ref={overlayRef} className="z-2">
+                {/* FIXED: Removed conditional Tailwind opacity utility styles so they don't block the timeline */}
+                <div 
+                    ref={overlayRef} 
+                    className="z-2 w-full h-full"
+                    style={{ display: "none", pointerEvents: "none" }} // Clean structural baseline setup
+                >
                     <Menu />
                 </div>
             </div>
 
+            {/* INTERACTIVE MENU TOGGLE BUTTON */}
             <div 
                 onClick={_handleClick} 
                 onMouseEnter={_handleHover}
