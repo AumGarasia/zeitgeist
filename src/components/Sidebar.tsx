@@ -1,12 +1,14 @@
-import { useState } from "react";
+import { useRef, useState, useEffect } from "react";
 import { ScrambleTextPlugin } from "gsap/ScrambleTextPlugin";
 import gsap from "gsap";
+import Menu from "./Menu";
 
 // TODO: Fix the animation jitter on the side-pane when returning back
 
 gsap.registerPlugin(ScrambleTextPlugin);
 
 function Sidebar() {
+    const overlayRef = useRef<HTMLDivElement>(null);
     const [isClicked, setIsClicked] = useState(false);
 
     const chars = "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789";
@@ -26,15 +28,41 @@ function Sidebar() {
         });
     }
 
+    useEffect(() => {
+        const overlay = overlayRef.current;
+        if (!overlay)   return;
+
+        if (isClicked) {
+            gsap.to(overlay, {
+                opacity: 1,
+                scale: 1,
+                duration: 0.8,
+                ease: "power3.out",
+                pointerEvents: "auto"
+            });
+        } else {
+            gsap.to(overlay, {
+                opacity: 0,
+                scale: 0.95,
+                duration: 0.6,
+                ease: "power3.out",
+                pointerEvents: "none"
+            });
+        }
+    }, [isClicked]);
+
     return (
-        <div className="flex">
+        <div className="flex h-full w-full">
             <div className={`toHome flexbox h-[100vh] text-white bg-black \
-            font-dancing font-bold text-[1.75rem] pl-[1rem] z-10 pt-[1.25rem] transition-all \
+            font-dancing font-bold text-[1.75rem] pl-[1rem] pt-[1.25rem] transition-all z-10 \
             ${isClicked 
-                ? 'w-[100vw] pointer-events-none duration-900' 
+                ? 'w-[100vw] pointer-events-none transition-all duration-900' 
                 : 'w-[3.125rem] hover:w-[4.5rem] hover:pl-[1.7rem] duration-900'
             }`}>
                 Z
+                <div ref={overlayRef} className="z-2">
+                    <Menu />
+                </div>
             </div>
 
             <div 

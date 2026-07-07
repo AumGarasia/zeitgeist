@@ -33,7 +33,8 @@ function Cursor() {
                             backgroundColor: "#D73340",
                             mixBlendMode: "normal",
                             duration: 0.3,
-                            overwrite: "auto"
+                            overwrite: "auto",
+                            border: "2px #FFFCFF solid"
                         });
 
                         textEl.innerText = "Scroll";
@@ -49,7 +50,7 @@ function Cursor() {
                     gsap.to(cursor, {
                         width: 40,
                         height: 40,
-                        backgroundColor: "#ffffff",
+                        backgroundColor: "#FFFCFF",
                         duration: 0.3,
                         overwrite: "auto"
                     });
@@ -65,7 +66,8 @@ function Cursor() {
                     backgroundColor: "#D73340",
                     mixBlendMode: "difference",
                     duration: 0.3,
-                    overwrite: "auto"
+                    overwrite: "auto",
+                    border: "none"
                 });
 
                 gsap.to(textEl, {
@@ -95,7 +97,7 @@ function Cursor() {
         >
             <div 
                 ref={textRef} 
-                className="text-white font-hanken font-extralight text-[14px] opacity-0 scale-0 transition-colors pointer-events-none"
+                className="text-white font-hanken font-extralight text-[0.875rem] opacity-0 scale-0 transition-colors pointer-events-none"
             />
         </div>
     );
