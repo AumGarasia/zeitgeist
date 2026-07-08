@@ -12,7 +12,7 @@ function Menu() {
         gsap.to(target, {
             duration: 0.35,
             scrambleText: {
-                text: target.innerText || "",
+                text: target.textContent || "",
                 chars: chars,
                 revealDelay: 0.2,
             }
@@ -60,7 +60,7 @@ function Menu() {
                     </span>
                 </div>
 
-                <p className="mt-6 font-hanken text-[1.25rem] font-light tracking-[-4%] leading-relaxed">
+                <p className="mt-[50px] font-hanken text-[1.25rem] font-light leading-none">
                     A project about <em>everything</em> at once.<br /><br />
                     Zeitgeist began as a question: what would it look like to care 
                     deeply about both editorial design and music history at the same time, 

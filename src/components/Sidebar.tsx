@@ -82,19 +82,19 @@ function Sidebar() {
     }, [isClicked]);
 
     return (
-        <div className="flex h-full w-full">
+        <div className="flex fixed z-200">
             {/* SIDE-PANE PANEL: Handled entirely by GSAP layout engine now */}
             <div 
                 ref={sidebarRef}
                 className={`toHome flexbox h-[100vh] text-white bg-black \
-                font-dancing font-bold text-[1.75rem] pl-[1rem] pt-[1.25rem] z-10 w-[3.125rem] select-none\
+                font-dancing font-bold text-[1.75rem] pl-[1rem] pt-[1.25rem] w-[3.125rem] select-none\
                 ${!isClicked ? 'w-[3.125rem] hover:w-[4.5rem] hover:pl-[1.7rem] transition-all duration-500' : ''}`}
             >
                 Z
                 {/* FIXED: Removed conditional Tailwind opacity utility styles so they don't block the timeline */}
                 <div 
                     ref={overlayRef} 
-                    className="z-2 w-full h-full"
+                    className="z-250 w-full h-full"
                     style={{ display: "none", pointerEvents: "none" }} // Clean structural baseline setup
                 >
                     <Menu />

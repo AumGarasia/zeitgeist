@@ -93,7 +93,7 @@ function Cursor() {
         <div
             ref={cursorRef}
             className="fixed top-0 left-0 w-5 h-5 bg-[#D73340] rounded-full \
-            pointer-events-none z-[9999] mix-blend-difference flex items-center justify-center"
+            pointer-events-none z-9999 mix-blend-difference flex items-center justify-center"
         >
             <div 
                 ref={textRef} 

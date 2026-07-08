@@ -63,7 +63,7 @@ function ScrollHint() {
     return (
         <div 
             data-cursor="scroll"
-            className={`fixed bottom-[50px] right-[50px] \
+            className={`fixed bottom-[50px] right-[50px] z-100\
             text-white font-hanken font-thin text-[32px] text-[1.25rem]
             ${isVisible ? 'opacity-100' : 'opacity-0'} transition-opacity duration-500`}
             style={{ transform: 'rotate(90deg)', userSelect: 'none' }}
