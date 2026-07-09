@@ -87,8 +87,8 @@ function Sidebar() {
             <div 
                 ref={sidebarRef}
                 className={`toHome flexbox h-[100vh] text-white bg-black \
-                font-dancing font-bold text-[1.75rem] pl-[1rem] pt-[1.25rem] w-[3.125rem] select-none\
-                ${!isClicked ? 'w-[3.125rem] hover:w-[4.5rem] hover:pl-[1.7rem] transition-all duration-500' : ''}`}
+                font-dancing font-bold text-[1.75rem] pl-[0.833vw] pt-[1.25rem] w-[2.60vw] select-none\
+                ${!isClicked ? 'w-[2.60vw] hover:w-[3.75vw] hover:pl-[1.4vw] transition-all duration-500' : ''}`}
             >
                 Z
                 {/* FIXED: Removed conditional Tailwind opacity utility styles so they don't block the timeline */}
@@ -106,7 +106,7 @@ function Sidebar() {
                 onClick={_handleClick} 
                 onMouseEnter={_handleHover}
                 onMouseLeave={_handleHover}
-                className={`menu group flex absolute max-h-fit ml-[5.625rem] mt-[1.25rem] z-10 \
+                className={`menu group flex absolute max-h-fit ml-[4.688vw] mt-[1.042vw] z-10 \
                 font-hanken text-[1.25rem] pt-[0.25rem] transition-all duration-900 \
                 ${isClicked ? 'text-white' : 'text-black'}`}
             >

@@ -66,7 +66,7 @@ function Menu() {
                     deeply about both editorial design and music history at the same time, 
                     in the same place?<br /><br />
                     This is that answer.<br /><br />
-                    Built by someone trying to make the web <em>feel</em> like an actual printed thing.
+                    Built by someone trying to make the web <em>feel</em> like the actual printed thing.
                 </p>
             </div>
 

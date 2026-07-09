@@ -2,8 +2,8 @@ import { useEffect, useRef } from 'react'
 import gsap from 'gsap'
 import { ReactLenis } from 'lenis/react'
 import Sidebar from './components/Sidebar'
-import ScrollHint from './components/ScrollHint'
 import Cursor from './components/Cursor'
+import Hero from './Screens/Hero'
 
 function App() {
   const lenisRef = useRef<any>(null)
@@ -22,7 +22,7 @@ function App() {
     <ReactLenis root options={{ autoRaf: false }} ref={lenisRef}>
       <Cursor />
       <Sidebar />
-      <ScrollHint />
+      <Hero />
     </ReactLenis>
   )
 }
