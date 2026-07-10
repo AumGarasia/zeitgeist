@@ -3,7 +3,7 @@ import gsap from 'gsap'
 import { ReactLenis } from 'lenis/react'
 import Sidebar from './components/Sidebar'
 import Cursor from './components/Cursor'
-import Hero from './Screens/Hero'
+import Carousel from './components/Carousel'
 
 function App() {
   const lenisRef = useRef<any>(null)
@@ -22,7 +22,7 @@ function App() {
     <ReactLenis root options={{ autoRaf: false }} ref={lenisRef}>
       <Cursor />
       <Sidebar />
-      <Hero />
+      <Carousel />
     </ReactLenis>
   )
 }

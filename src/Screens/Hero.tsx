@@ -29,7 +29,7 @@ function Hero() {
             {/* LEFT PANE: TITLE AND SUBTITLE */}
             <div className="relative h-[100vh] w-[52.6vw]">
 
-                <div className="fixed w-[42.7vw] h-[34.26vh] bottom-0 left-0  ml-[6.77vw] mb-[9.26vh]">
+                <div className="absolute w-[42.7vw] h-[34.26vh] bottom-0 left-0  ml-[6.77vw] mb-[9.26vh]">
                     <div className="leading-none">
                         <span className="font-bricolage font-extrabold text-[12.375rem]">zeit</span>
                         <span className="font-cormorant font-bold italic text-[17rem] ml-[-0.625vw] tracking-[-4%] text-red">geist</span>

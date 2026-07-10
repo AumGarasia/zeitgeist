@@ -55,7 +55,7 @@ function Menu() {
                     <span className="font-bricolage text-[6rem] font-extrabold leading-none">
                         zeit
                     </span>
-                    <span className="font-cormorant text-[8.16rem] font-bold italic text-[#D73340] tracking-[-4%] leading-none ml-[-0.313rem]">
+                    <span className="font-cormorant text-[8.16rem] font-bold italic text-red tracking-[-4%] leading-none ml-[-0.313rem]">
                         geist
                     </span>
                 </div>
