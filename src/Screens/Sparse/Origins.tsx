@@ -15,11 +15,11 @@ function Origins() {
                             <span className="font-hanken font-normal text-[2.23vh] pl-[1.07vw] pt-[13vh]">Origins</span>
                         </div>
 
-                        <p 
+                        <h3 
                             className="font-bricolage font-normal text-[3.703vh] pb-[3.703vh]"
                         >
                             Before the Minimoog, there was electricity itself.
-                        </p>
+                        </h3>
 
                         <p className="font-hanken font-light text-[2.23vh]">
                             Maurice Martenot built his instrument to sing 

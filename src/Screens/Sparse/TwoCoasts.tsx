@@ -1,6 +1,6 @@
 function TwoCoasts() {
     return (
-        <div className="h-[100vh] w-[100vw]
+        <div className="h-[100vh] w-[100vw] ml-[1vw]
             pb-[9.259vh] pt-[9.259vh] pr-[6.77vw] select-none
             grid grid-cols-[32.1875vw_52.447vw] gap-x-[4.167vw]">
                 <div className="h-full w-full">
