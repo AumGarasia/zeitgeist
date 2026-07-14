@@ -1,4 +1,5 @@
 import Hero from "../Screens/Hero";
+import BedroomStudio from "../Screens/Sparse/BedroomStudio";
 import Origins from "../Screens/Sparse/Origins";
 import Polyphony from "../Screens/Sparse/Polyphony";
 import TwoCoasts from "../Screens/Sparse/TwoCoasts";
@@ -10,6 +11,7 @@ function Carousel() {
             <Origins />
             <TwoCoasts />
             <Polyphony />
+            <BedroomStudio />
         </div>
     )
 }
